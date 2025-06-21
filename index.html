@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Harshal Mandliya - Supply Chain Innovation Leader</title>
     <style>
         * {
@@ -30,7 +30,7 @@
             80% { background-position: 50% 0%; }
         }
 
-        /* ENHANCED SUPPLY CHAIN ANIMATION SYSTEM */
+        /* MOBILE-OPTIMIZED SUPPLY CHAIN ANIMATION */
         .supply-chain-master {
             position: fixed;
             top: 0;
@@ -41,6 +41,13 @@
             opacity: 0.15;
             pointer-events: none;
             filter: brightness(1.3) contrast(1.2);
+        }
+
+        /* Hide complex animations on small mobile */
+        @media (max-width: 480px) {
+            .supply-chain-master {
+                opacity: 0.08;
+            }
         }
 
         /* CHAPTER SYSTEM */
@@ -329,6 +336,7 @@
         .contact-card .icon {
             font-size: 1.8rem;
             opacity: 0.9;
+            flex-shrink: 0;
         }
 
         /* FLOATING NAVIGATION WITH DARK GLASS */
@@ -348,6 +356,7 @@
             flex-wrap: wrap;
             justify-content: center;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            max-width: 90vw;
         }
 
         .nav-floating .nav-link {
@@ -617,7 +626,39 @@
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
 
-        /* RESPONSIVE DESIGN */
+        /* Chapter Control Badge */
+        .chapter-control {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 1.2rem 1.8rem;
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chapter-control:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+        }
+
+        .chapter-display {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.05rem;
+        }
+
+        /* MOBILE RESPONSIVE DESIGN */
         @media (max-width: 1200px) {
             .contact-premium {
                 grid-template-columns: 1fr 1fr;
@@ -629,53 +670,570 @@
             }
         }
 
+        /* TABLET STYLES */
         @media (max-width: 768px) {
+            /* Reduce animations on tablets */
+            .supply-chain-master {
+                opacity: 0.1;
+            }
+
             .premium-header {
-                padding: 6rem 0 4rem 0;
+                padding: 5rem 0 3.5rem 0;
+            }
+            
+            .hero-title {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1.2rem, 3vw, 1.8rem);
+                margin-bottom: 2.5rem;
+                padding: 0 1rem;
             }
             
             .section-container {
-                padding: 0 1.5rem;
+                padding: 0 2rem;
+            }
+
+            .section-title {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+
+            .section-subtitle {
+                font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+                padding: 0 1rem;
             }
             
             .contact-premium {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+                margin-top: 2.5rem;
             }
             
             .skills-mastery {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skill-category {
+                padding: 2.5rem 2rem;
+            }
+
+            .skill-category h3 {
+                font-size: 1.6rem;
+            }
+
+            .skill-tag {
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
             }
             
             .nav-floating {
-                top: 1rem;
-                padding: 0.8rem 1.2rem;
+                top: 0.8rem;
+                padding: 0.6rem 1rem;
+                width: calc(100% - 2rem);
+                left: 1rem;
+                transform: none;
+                border-radius: 35px;
+            }
+
+            .nav-floating .nav-link {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
             }
 
             .contact-card {
-                min-height: 90px;
-                padding: 1.5rem;
+                min-height: 80px;
+                padding: 1.2rem;
+            }
+
+            .contact-card a {
+                font-size: 1.1rem;
             }
 
             .contact-card.email-card a {
                 font-size: 1rem;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
 
             .contact-card.location-card div {
-                font-size: 1.05rem;
+                font-size: 1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .contact-card .icon {
+                font-size: 1.5rem;
             }
             
             .company-grid {
                 padding: 2rem 1.5rem;
                 gap: 1.5rem;
+                grid-template-columns: 1fr;
+            }
+
+            .company-header {
+                font-size: 1.5rem;
+                padding: 1.5rem 2rem;
             }
             
             .mini-project {
                 padding: 1.5rem;
             }
+
+            .mini-project-title {
+                font-size: 1.2rem;
+            }
+
+            .mini-project-desc {
+                font-size: 1.05rem;
+            }
+
+            .stats-showcase {
+                gap: 2rem;
+                margin: 3rem 0;
+            }
+
+            .stat-card {
+                padding: 3rem 2rem;
+            }
+
+            .stat-number {
+                font-size: clamp(2.5rem, 5vw, 4rem);
+            }
+
+            .stat-label {
+                font-size: 1.3rem;
+            }
+
+            .content-section {
+                padding: 5rem 0;
+                min-height: auto;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .ultra-glass {
+                padding: 3rem 2rem !important;
+            }
+
+            .ultra-glass h3 {
+                font-size: 2rem !important;
+            }
+
+            .ultra-glass p {
+                font-size: 1.3rem !important;
+            }
+
+            /* Chapter control mobile position */
+            .chapter-control {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .chapter-display {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* MOBILE PHONE STYLES */
+        @media (max-width: 480px) {
+            /* Further reduce animations on small mobile */
+            .supply-chain-master svg {
+                transform: scale(1.5);
+                transform-origin: center;
+            }
+
+            /* Reduce animation complexity */
+            @keyframes conveyorFlow {
+                0% { transform: translateX(-100px); }
+                100% { transform: translateX(100vw); }
+            }
+
+            @keyframes megaTruck {
+                0% { transform: translateX(-100px); }
+                100% { transform: translateX(100vw); }
+            }
+
+            @keyframes oceanicVoyage {
+                0% { transform: translateX(-200px); }
+                100% { transform: translateX(100vw); }
+            }
+
+            @keyframes aerialDominance {
+                0% { transform: translateX(-150px) translateY(20px); }
+                100% { transform: translateX(100vw) translateY(-10px); }
+            }
+
+            @keyframes futuristicDrones {
+                0% { transform: translateX(-100px) translateY(10px); }
+                100% { transform: translateX(100vw) translateY(-5px); }
+            }
+
+            .premium-header {
+                padding: 4rem 0 3rem 0;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+                line-height: 1.5;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.2;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            .section-container {
+                padding: 0 1.2rem;
+            }
+
+            .contact-premium {
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .contact-card {
+                min-height: 70px;
+                padding: 1rem;
+            }
+
+            .contact-card a {
+                font-size: 0.95rem;
+                gap: 0.7rem;
+            }
+
+            .contact-card.email-card a {
+                font-size: 0.85rem;
+            }
+
+            .contact-card.location-card div {
+                font-size: 0.9rem;
+            }
+
+            .contact-card .icon {
+                font-size: 1.3rem;
+            }
+
+            .nav-floating {
+                top: 0.5rem;
+                padding: 0.5rem 0.8rem;
+                gap: 0.4rem;
+                left: 0.5rem;
+                width: calc(100% - 1rem);
+            }
+
+            .nav-floating .nav-link {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                border-radius: 20px;
+            }
+
+            .stats-showcase {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2.5rem 0;
+            }
+
+            .stat-card {
+                padding: 2.5rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .stat-label {
+                font-size: 1.1rem;
+            }
+
+            .skills-mastery {
+                gap: 1.5rem;
+            }
+
+            .skill-category {
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .skill-category h3 {
+                font-size: 1.4rem;
+                margin-bottom: 2rem;
+            }
+
+            .skill-tags {
+                gap: 0.7rem;
+            }
+
+            .skill-tag {
+                font-size: 0.9rem;
+                padding: 0.7rem 1rem;
+                border-radius: 15px;
+            }
+
+            .company-projects {
+                margin: 2.5rem 0;
+            }
+
+            .company-header {
+                font-size: 1.3rem;
+                padding: 1.2rem 1.5rem;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .company-grid {
+                padding: 1.5rem 1rem;
+                gap: 1rem;
+                border-radius: 0 0 12px 12px;
+            }
+
+            .mini-project {
+                padding: 1.2rem;
+                border-radius: 10px;
+            }
+
+            .mini-project-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .mini-project-tech {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+                border-radius: 10px;
+            }
+
+            .mini-project-desc {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .content-section {
+                padding: 4rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .ultra-glass {
+                padding: 2.5rem 1.5rem !important;
+                border-radius: 20px;
+            }
+
+            .ultra-glass h3 {
+                font-size: 1.6rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .ultra-glass p {
+                font-size: 1.1rem !important;
+                line-height: 1.8 !important;
+            }
+
+            /* Chapter control mobile */
+            .chapter-control {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.8rem 1.2rem;
+                border-radius: 15px;
+            }
+
+            .chapter-display {
+                font-size: 0.85rem;
+                gap: 0.4rem;
+            }
+
+            /* Smooth animations */
+            .fade-in-up {
+                transform: translateY(30px);
+            }
+
+            .stagger-animation > * {
+                transform: translateY(25px);
+            }
+
+            /* Scroll progress */
+            .scroll-progress {
+                height: 3px;
+            }
+
+            /* Notification adjustments */
+            .master-notification {
+                right: 1rem !important;
+                top: 4rem !important;
+                max-width: calc(100vw - 2rem) !important;
+                padding: 1rem 1.5rem !important;
+                border-radius: 15px !important;
+            }
+        }
+
+        /* ULTRA SMALL MOBILE PHONES */
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .nav-floating .nav-link {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .contact-card {
+                min-height: 65px;
+                padding: 0.9rem;
+            }
+
+            .contact-card a {
+                font-size: 0.9rem;
+            }
+
+            .contact-card.email-card a {
+                font-size: 0.8rem;
+            }
+
+            .contact-card .icon {
+                font-size: 1.2rem;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .stat-label {
+                font-size: 1rem;
+            }
+
+            .skill-tag {
+                font-size: 0.85rem;
+                padding: 0.6rem 0.9rem;
+            }
+
+            .mini-project-title {
+                font-size: 1rem;
+            }
+
+            .mini-project-desc {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Performance optimizations for mobile */
+        @media (max-width: 768px) {
+            /* Disable heavy animations on mobile */
+            * {
+                animation-duration: 0s !important;
+                -webkit-animation-duration: 0s !important;
+            }
+
+            /* Keep essential animations */
+            .supply-chain-master *,
+            .fade-in-up,
+            .stagger-animation > *,
+            .nav-floating .nav-link::before,
+            .stat-card,
+            .skill-tag,
+            .scroll-progress-bar {
+                animation-duration: inherit !important;
+                -webkit-animation-duration: inherit !important;
+            }
+
+            /* Reduce backdrop filters on mobile for performance */
+            @supports not (backdrop-filter: blur(1px)) {
+                .glass-panel,
+                .ultra-glass,
+                .content-glass,
+                .nav-floating,
+                .contact-card,
+                .stat-card,
+                .skill-category,
+                .company-grid,
+                .mini-project,
+                .chapter-control {
+                    background: rgba(0, 0, 0, 0.85);
+                    backdrop-filter: none;
+                }
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .premium-header {
+                padding: 3rem 0 2rem 0;
+            }
+
+            .content-section {
+                padding: 3rem 0;
+                min-height: auto;
+            }
+
+            .nav-floating {
+                top: 0.3rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .nav-floating .nav-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-premium {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .contact-card {
+                min-height: 60px;
+                padding: 0.8rem;
+            }
+
+            .chapter-control {
+                bottom: 0.5rem;
+                right: 0.5rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+
+        /* Touch device optimizations */
+        .touch-device .contact-card:hover,
+        .touch-device .stat-card:hover,
+        .touch-device .skill-tag:hover,
+        .touch-device .mini-project:hover {
+            transform: none;
         }
 
         /* SMOOTH ANIMATIONS */
@@ -723,38 +1281,6 @@
             background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.3), rgba(255,255,255,0.6));
             width: 0%;
             transition: width 0.1s ease;
-        }
-
-        /* Chapter Control Badge */
-        .chapter-control {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(25px) saturate(200%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 20px;
-            padding: 1.2rem 1.8rem;
-            color: white;
-            font-weight: 600;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chapter-control:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-3px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
-        }
-
-        .chapter-display {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 1.05rem;
         }
     </style>
 </head>
@@ -1883,294 +2409,3 @@
                         this.maintainAnimations();
                     }
                 });
-            }
-
-            goToChapter(chapterNum) {
-                if (chapterNum < 1 || chapterNum > this.totalChapters || chapterNum === this.currentChapter) return;
-                
-                this.currentChapter = chapterNum;
-                this.isUserControlled = true;
-                this.updateChapterDisplay();
-                this.showChapterNotification();
-                
-                // Resume auto-play after 15 seconds
-                setTimeout(() => {
-                    this.isUserControlled = false;
-                    this.isAutoPlaying = true;
-                }, 15000);
-            }
-
-            nextChapter() {
-                const next = this.currentChapter >= this.totalChapters ? 1 : this.currentChapter + 1;
-                this.goToChapter(next);
-            }
-
-            previousChapter() {
-                const prev = this.currentChapter <= 1 ? this.totalChapters : this.currentChapter - 1;
-                this.goToChapter(prev);
-            }
-
-            updateChapterDisplay() {
-                // Hide all chapters
-                document.querySelectorAll('.master-chapter').forEach(chapter => {
-                    chapter.classList.remove('active');
-                });
-
-                // Show current chapter
-                const currentChapterElement = document.getElementById(`master-chapter-${this.currentChapter}`);
-                if (currentChapterElement) {
-                    currentChapterElement.classList.add('active');
-                }
-
-                // Update chapter control display
-                const chapterIcon = document.getElementById('chapterIcon');
-                const chapterText = document.getElementById('chapterText');
-                if (chapterIcon && chapterText) {
-                    const chapterInfo = this.chapterData[this.currentChapter];
-                    chapterIcon.textContent = chapterInfo.icon;
-                    chapterText.textContent = chapterInfo.text;
-                }
-            }
-
-            startAutoPlay() {
-                setInterval(() => {
-                    if (this.isAutoPlaying && !this.isUserControlled) {
-                        this.nextChapter();
-                    }
-                }, this.chapterDuration);
-            }
-
-            toggleAutoPlay() {
-                this.isAutoPlaying = !this.isAutoPlaying;
-                this.showNotification(
-                    this.isAutoPlaying ? '▶️ Auto-play resumed' : '⏸️ Auto-play paused',
-                    this.isAutoPlaying ? 'Supply chain story continues...' : 'Click chapter control or press SPACE to resume'
-                );
-            }
-
-            toggleFullscreen() {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                } else {
-                    document.documentElement.requestFullscreen();
-                }
-            }
-
-            showChapterNotification() {
-                const chapterNames = {
-                    1: '🏔️ Raw Materials Extraction - The Foundation',
-                    2: '🏭 Manufacturing Revolution - The Transformation',
-                    3: '🚛 Global Transportation - The Journey',
-                    4: '🏢 Intelligent Warehousing - The Hub',
-                    5: '🏠 Last Mile Delivery - The Future'
-                };
-                
-                this.showNotification(
-                    `Chapter ${this.currentChapter}`,
-                    chapterNames[this.currentChapter]
-                );
-            }
-
-            showNotification(title, message, duration = 4000) {
-                // Remove existing notifications
-                document.querySelectorAll('.master-notification').forEach(n => n.remove());
-                
-                const notification = document.createElement('div');
-                notification.className = 'master-notification';
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 6rem;
-                    right: 2rem;
-                    background: rgba(255, 255, 255, 0.08);
-                    backdrop-filter: blur(25px) saturate(200%);
-                    border: 1px solid rgba(255, 255, 255, 0.12);
-                    padding: 1.5rem 2rem;
-                    border-radius: 20px;
-                    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-                    z-index: 10000;
-                    max-width: 400px;
-                    color: white;
-                    transform: translateX(120%);
-                    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-                `;
-                
-                notification.innerHTML = `
-                    <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; color: white; text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);">
-                        ${title}
-                    </div>
-                    <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem; line-height: 1.5; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);">${message}</div>
-                `;
-                
-                document.body.appendChild(notification);
-                
-                // Animate in
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(0)';
-                }, 100);
-                
-                // Remove after delay
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(120%)';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            document.body.removeChild(notification);
-                        }
-                    }, 600);
-                }, duration);
-            }
-
-            showWelcomeMessage() {
-                setTimeout(() => {
-                    this.showNotification(
-                        '🎮 Interactive Controls',
-                        'Use arrow keys, 1-5 numbers, SPACE to pause, click chapter badge, or swipe on mobile',
-                        5000
-                    );
-                }, 3000);
-            }
-
-            setupScrollAnimations() {
-                const observerOptions = {
-                    threshold: 0.15,
-                    rootMargin: '0px 0px -100px 0px'
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, observerOptions);
-
-                // Observe elements with stagger animation
-                document.querySelectorAll('.stagger-animation').forEach(container => {
-                    container.style.opacity = '0';
-                    container.style.transform = 'translateY(60px)';
-                    container.style.transition = 'opacity 1s ease, transform 1s ease';
-                    observer.observe(container);
-                });
-
-                // Observe individual fade-in elements
-                document.querySelectorAll('.fade-in-up').forEach(el => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(40px)';
-                    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    observer.observe(el);
-                });
-            }
-
-            setupNavigation() {
-                // Smooth scrolling for navigation
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const targetId = link.getAttribute('href').substring(1);
-                        const targetSection = document.getElementById(targetId);
-                        if (targetSection) {
-                            targetSection.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
-                });
-
-                // Active navigation highlighting
-                window.addEventListener('scroll', () => {
-                    const sections = document.querySelectorAll('section[id]');
-                    const navLinks = document.querySelectorAll('.nav-link');
-                    
-                    let current = '';
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop;
-                        if (pageYOffset >= sectionTop - 300) {
-                            current = section.getAttribute('id');
-                        }
-                    });
-
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href').substring(1) === current) {
-                            link.classList.add('active');
-                        }
-                    });
-                });
-            }
-
-            updateScrollProgress() {
-                const scrolled = window.pageYOffset;
-                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                const progress = (scrolled / maxScroll) * 100;
-                
-                const progressBar = document.querySelector('.scroll-progress-bar');
-                if (progressBar) {
-                    progressBar.style.width = `${Math.min(progress, 100)}%`;
-                }
-            }
-
-            maintainAnimations() {
-                // Ensure animations continue when tab is hidden
-                const animatedElements = document.querySelectorAll('.supply-chain-master *');
-                animatedElements.forEach(el => {
-                    if (el.style.animationPlayState !== 'paused') {
-                        el.style.animationPlayState = 'running';
-                    }
-                });
-            }
-        }
-
-        // Initialize the master experience
-        document.addEventListener('DOMContentLoaded', () => {
-            new MasterSupplyChainExperience();
-            
-            // Loading animation
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-                document.body.style.transition = 'opacity 1.5s ease';
-            }, 200);
-
-            // Console welcome
-            console.log('🌟 PORTFOLIO UPDATED WITH ALL REQUESTED CHANGES! ✨');
-            console.log('✅ Changes Applied:');
-            console.log('   • Removed optimization notification');
-            console.log('   • Increased font sizes and element spacing throughout');
-            console.log('   • Removed certifications from Education section');
-            console.log('🎨 Dark Colors: Black, Dark Red, Dark Purple');
-            console.log('🎮 Master Controls:');
-            console.log('   ← → Arrow keys - Navigate chapters');
-            console.log('   1-5 Numbers - Jump to specific chapters');
-            console.log('   SPACE - Pause/Resume auto-play');
-            console.log('   Click chapter badge - Toggle auto-play');
-            console.log('   F - Toggle fullscreen mode');
-            console.log('📱 Mobile: Swipe left/right, double-tap to pause');
-            console.log('🚀 Experience the future of supply chain innovation!');
-        });
-
-        // Performance optimizations
-        let ticking = false;
-        function updateParallax() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.supply-chain-master');
-            if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.05}px) translateZ(0)`;
-            }
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        });
-
-        // Enhanced mobile experience
-        if ('ontouchstart' in window) {
-            document.body.classList.add('touch-device');
-        }
-    </script>
-</body>
-</html>
